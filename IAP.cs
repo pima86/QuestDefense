@@ -16,7 +16,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
         InitIAP();
     }
 
-    void InitIAP()
+    public void InitIAP()
     {
         var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
 
@@ -59,13 +59,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
         switch (product.definition.id)
         {
             case "ad":
-                Debug.Log("광고 제거");
-                adButton.SetActive(false);
-                adIcon.SetActive(false);
-
-                gpgs.SaveData();
-                gpgs.LoadData();
-
+                BuyAdsBlocking();
                 break;
         }
 
@@ -83,5 +77,15 @@ public class IAPManager : MonoBehaviour, IStoreListener
         if (product != null)
             return product.hasReceipt;
         return false;
+    }
+
+    public void BuyAdsBlocking()
+    {
+        GameManager.inst.BuyAdsBlocking = true;
+        adButton.SetActive(false);
+        adIcon.SetActive(false);
+
+        gpgs.SaveData();
+        gpgs.LoadData();
     }
 }
