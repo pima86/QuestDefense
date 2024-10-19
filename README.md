@@ -5,4 +5,5 @@ StarCraft의 랜덤타워디펜스 유즈맵을 기반으로 기획된 🚧퀘�
 
 
 ##### 개발환경
-Unit3D 2022.3.18f1 <DX11> / C# / Vs2022
+##### Unit3D 2022.3.18f1 
+##### Visual Studio C#
